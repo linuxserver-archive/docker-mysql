@@ -42,7 +42,7 @@ MYSQL_PASS="CREATE USER 'root'@'%' IDENTIFIED BY '' ;"
 else
 MYSQL_PASS="CREATE USER 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;"
 fi
-
+	
 # add rest of sql commands based on password set or not
 echo "$MYSQL_PASS" >> "$tempSqlFile"
 echo "GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION ;" >> "$tempSqlFile"
@@ -63,7 +63,7 @@ start_mysql
 # shut down after apply sql commands, waiting for pid to stop
 mysqladmin -u root shutdown
 wait "$pid"
-echo "Database Setup Conpleted"
+echo "Database Setup Completed"
 
 # display a message about password if not set or too short
 if [ "$TEST_LEN" -lt "4" ]; then
