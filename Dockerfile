@@ -7,9 +7,6 @@ MAINTAINER Mark Burford <sparklyballs@gmail.com>
 ENV MYSQL_DIR="/config"
 ENV DATADIR=$MYSQL_DIR/databases
 
-# Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
-
 # set ports
 EXPOSE 3306
 
