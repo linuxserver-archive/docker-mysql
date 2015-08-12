@@ -13,14 +13,8 @@ EXPOSE 3306
 # update apt and install packages
 RUN apt-get update && \
 apt-get install \
-mysql-server -qy && \
+mysql-server mysqltuner -qy && \
 apt-get clean -y && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# install mysqltuner
-RUN apt-get update -q && \
-apt-get install \
-mysqltuner -qy && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Tweak my.cnf
