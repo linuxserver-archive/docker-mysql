@@ -22,7 +22,7 @@ linuxserver/mysql
 
 * `-p 3306` - mysql port
 * `-v /config` - - Where you want to store your databases, log and the my.cnf file. find my.cnf in /config, the databases in /config/databases and the log in /config/log/myqsl
-* '-e MYSQL_ROOT_PASSWORD=' - Set this to specify a root password for mysql.. if you do not set this variable or set it with less than 4 characters, then the install will continue with no password set... use mysqladmin -u root password <PASSWORD> to set one at the docker prompt... NOTE changing this variable after the container has set up the initial databases has no effect. It is also advisable to edit the container after setup and remove reference to this variable.
+* `-e MYSQL_ROOT_PASSWORD=` - Set this to specify a root password for mysql.. if you do not set this variable or set it with less than 4 characters, then the install will continue with no password set... use mysqladmin -u root password <PASSWORD> to set one at the docker prompt... NOTE changing this variable after the container has set up the initial databases has no effect. It is also advisable to edit the container after setup and remove reference to this variable.
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
 
