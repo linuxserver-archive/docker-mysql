@@ -37,7 +37,7 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Setting up the application 
 
-If you didn't set a password during installation, (see logs for warning) use mysqladmin -u root password <PASSWORD> to set one at the docker prompt... NOTE changing the MYSQL_ROOT_PASSWORD variable after the container has set up the initial databases has no effect. It is also advisable to edit the container after setup and remove reference to this variable.
+If you didn't set a password during installation, (see logs for warning) use mysqladmin -u root password <PASSWORD> to set one at the docker prompt... NOTE changing the MYSQL_ROOT_PASSWORD variable after the container has set up the initial databases has no effect. It is also advisable to edit the run command or template/webui after setup and remove reference to this variable.
 
 Find my.cnf in /config, the databases in /config/databases and the log in /config/log/myqsl
 
