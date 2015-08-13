@@ -23,7 +23,7 @@ linuxserver/mysql
 
 * `-p 3306` - mysql port
 * `-v /config` - Contains the db itself and all assorted settings. 
-* `-e MYSQL_ROOT_PASSWORD=` - set this to root password for installation (minimum 4 characters)
+* `-e MYSQL_ROOT_PASSWORD` - set this to root password for installation (minimum 4 characters)
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
