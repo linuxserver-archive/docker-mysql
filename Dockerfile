@@ -10,12 +10,22 @@ ENV DATADIR=$MYSQL_DIR/databases
 # set ports
 EXPOSE 3306
 
+
+# set debconf selections to not show apt messages about mysql data paths etc..
+RUN { echo mysql-community-server mysql-community-server/data-dir select ''; \
+echo mysql-community-server mysql-community-server/root-pass password ''; \
+echo mysql-community-server mysql-community-server/re-root-pass password ''; \
+echo mysql-community-server mysql-community-server/remove-test-db select false; } | debconf-set-selections
+
 # update apt and install packages
 RUN apt-get update && \
 apt-get install \
 mysql-server mysqltuner -qy && \
 apt-get clean -y && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+
+# empty /var/lib/mysql as we are using our own data folders
+rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql
 
 # Tweak my.cnf
 RUN sed -ri 's/^(bind-address|skip-networking)/;\1/' /etc/mysql/my.cnf && \
