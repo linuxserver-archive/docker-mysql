@@ -42,12 +42,13 @@ MYSQL_PASS="CREATE USER 'root'@'%' IDENTIFIED BY '' ;"
 else
 MYSQL_PASS="CREATE USER 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;"
 fi
-	
-# add rest of sql commands based on password set or not
-echo "$MYSQL_PASS" >> "$tempSqlFile"
-echo "GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION ;" >> "$tempSqlFile"
-echo "DROP DATABASE IF EXISTS test ;" >> "$tempSqlFile"
 
+# add rest of sql commands based on password set or not
+cat >> "$tempSqlFile" <<-EONEWSQL
+$MYSQL_PASS
+GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION ;
+DROP DATABASE IF EXISTS test ;
+EONEWSQL
 echo "Setting Up Initial Databases"
 
 # set some permissions needed before we begin initialising
@@ -67,7 +68,7 @@ echo "Database Setup Completed"
 
 # display a message about password if not set or too short
 if [ "$TEST_LEN" -lt "4" ]; then
-echo >&2 "$(cat /tmp/no-pass.nfo)"
+less /tmp/no-pass.nfo
 sleep 5s
 fi
 
