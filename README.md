@@ -53,5 +53,5 @@ The container also has mysqltuner included which can either be run from within t
 
 
 ## Versions
-
++ **26.01.2016:** Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
 + **12.08.2015:** Initial Release. 
