@@ -4,7 +4,7 @@ FROM linuxserver/baseimage
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
 # set some environment variables for mariadb to give us our paths
-ENV APTLIST="mysql-server mysqltuner"
+ENV INSTALL_LIST="mysql-server mysqltuner"
 ENV MYSQL_DIR="/config"
 ENV DATADIR=$MYSQL_DIR/databases
 
@@ -17,7 +17,7 @@ echo mysql-community-server mysql-community-server/remove-test-db select false; 
 # update apt and install packages
 RUN apt-get update && \
 apt-get install \
-$APTLIST -qy && \
+$INSTALL_LIST -qy && \
 
 # clean up
 apt-get clean -y && \
