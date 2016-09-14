@@ -3,6 +3,9 @@ FROM linuxserver/baseimage
 
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
+# copy sources.list
+COPY sources.list /etc/apt/
+
 # set some environment variables for mariadb to give us our paths
 ENV INSTALL_LIST="mysql-server mysqltuner"
 ENV MYSQL_DIR="/config"

@@ -1,14 +1,23 @@
-![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+[linuxserverurl]: https://linuxserver.io
+[forumurl]: https://forum.linuxserver.io
+[ircurl]: https://www.linuxserver.io/index.php/irc/
+[podcasturl]: https://www.linuxserver.io/index.php/category/podcast/
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io](https://forum.linuxserver.io)
-* [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
-* [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+[![linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)][linuxserverurl]
+
+The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
+* [forum.linuxserver.io][forumurl]
+* [IRC][ircurl] on freenode at `#linuxserver.io`
+* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/mysql
-![](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-git.png)
+[![](https://images.microbadger.com/badges/image/linuxserver/mysql.svg)](http://microbadger.com/images/linuxserver/mysql "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/mysql.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/mysql.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-mysql)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-mysql/)
+[hub]: https://hub.docker.com/r/linuxserver/mysql/
 
 MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more. 
+
+[![mysql](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-git.png)][mysqlurl]
+[mysqlurl]: https://www.mysql.com/
 
 ## Usage
 
@@ -31,6 +40,8 @@ linuxserver/mysql
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
+It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it mysql /bin/bash`.
+
 ### User / Group Identifiers
 
 Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" ™.
@@ -51,16 +62,15 @@ Find custom.cnf in /config for config changes (restart container for them to tak
 The container also has mysqltuner included which can either be run from within the container by exec'ing in or externally by issuing `docker exec -it mysql mysqltuner`. It will prompt for credentials if you have set a password for root user.
 
 
-
-## Logs and Shell
+## Info
 
 * Shell access whilst the container is running: `docker exec -it mysql /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f mysql`
 
 
-
 ## Versions
-+ **14.03.2016:** Remove autoupdating, between some version updates the container breaks, change to adding config options in init script, use custom.cnf instead of my.cnf
-+ **26.01.2016:** Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
-+ **12.08.2015:** Initial Release. 
 
++ **14.09.16:** Bump version due to USN-3078-1.
++ **14.03.16:** Remove autoupdating, between some version updates the container breaks, change to adding config options in init script, use custom.cnf instead of my.cnf
++ **26.01.16:** Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
++ **12.08.15:** Initial Release.
