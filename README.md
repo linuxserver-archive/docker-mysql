@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/mysql
-[![](https://images.microbadger.com/badges/image/linuxserver/mysql.svg)](http://microbadger.com/images/linuxserver/mysql "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/mysql.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/mysql.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-mysql)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-mysql/)
+[![](https://images.microbadger.com/badges/version/linuxserver/mysql.svg)](https://microbadger.com/images/linuxserver/mysql "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/mysql.svg)](http://microbadger.com/images/linuxserver/mysql "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/mysql.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/mysql.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-mysql)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-mysql/)
 [hub]: https://hub.docker.com/r/linuxserver/mysql/
 
 MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more. 
@@ -67,9 +67,17 @@ The container also has mysqltuner included which can either be run from within t
 * Shell access whilst the container is running: `docker exec -it mysql /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f mysql`
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' mysql`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/mysql`
 
 ## Versions
 
++ **14-10-16:** Add version layer information.
 + **14.09.16:** Bump version due to USN-3078-1.
 + **14.03.16:** Remove autoupdating, between some version updates the container breaks, change to adding config options in init script, use custom.cnf instead of my.cnf
 + **26.01.16:** Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
