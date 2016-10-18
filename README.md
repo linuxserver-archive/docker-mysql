@@ -83,7 +83,7 @@ The container also has mysqltuner included which can either be run from within t
 
 ## Versions
 
-+ **14-10-16:** Add version layer information.
++ **14.10.16:** Add version layer information.
 + **14.09.16:** Bump version due to USN-3078-1.
 + **14.03.16:** Remove autoupdating, between some version updates the container breaks, change to adding config options in init script, use custom.cnf instead of my.cnf
 + **26.01.16:** Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
