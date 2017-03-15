@@ -2,6 +2,8 @@
 [forumurl]: https://forum.linuxserver.io
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
+[appurl]: https://www.mysql.com/
+[hub]: https://hub.docker.com/r/linuxserver/mysql/
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
@@ -12,12 +14,10 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 
 # linuxserver/mysql
 [![](https://images.microbadger.com/badges/version/linuxserver/mysql.svg)](https://microbadger.com/images/linuxserver/mysql "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/mysql.svg)](http://microbadger.com/images/linuxserver/mysql "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/mysql.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/mysql.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-mysql)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-mysql/)
-[hub]: https://hub.docker.com/r/linuxserver/mysql/
 
 MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more. 
 
-[![mysql](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-git.png)][mysqlurl]
-[mysqlurl]: https://www.mysql.com/
+[![mysql](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-git.png)][appurl]
 
 ## Usage
 
